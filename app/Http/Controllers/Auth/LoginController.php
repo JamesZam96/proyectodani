@@ -6,7 +6,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
-
+use Illuminate\Validation\ValidationException;
 class LoginController extends Controller
 {
     use AuthenticatesUsers;
@@ -69,6 +69,7 @@ class LoginController extends Controller
                         'email' => ['Las credenciales proporcionadas son incorrectas.'],
                     ]);
                 //}
+                
                 //return back()->withErrors(['email' => 'The provided credentials do not match our records.',]);
             }
 
@@ -91,10 +92,10 @@ class LoginController extends Controller
             if ($request->wantsJson()) {
                 // Respuesta JSON con el token
                 return response()->json([
-                   // 'message' => 'Login exitoso',
+                    'message' => 'Login exitoso',
                     'token' => $token,
                     'user' => $user
-                ],200);
+                ]);
             }
            // return redirect()->route('home.customer');
 
@@ -112,11 +113,10 @@ class LoginController extends Controller
             return response()->json([
                 'message' => 'Successfully logged out'
             ]);
-        } else {
-            // Para solicitudes web
-            Auth::logout();
-            return redirect()->route('login.form');
         }
+        // Para solicitudes web
+        Auth::logout();
+        return redirect()->route('login.form');
     }
 
     // Estos métodos ahora son alias para mantener compatibilidad con tus rutas existentes
