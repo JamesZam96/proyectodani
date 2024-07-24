@@ -50,7 +50,7 @@ class LoginController extends Controller
             ]);
         }
     }*/
-    public function login(Request $request)
+    /*public function login(Request $request)
     {
         try {
             // Validar datos de entrada
@@ -85,7 +85,7 @@ class LoginController extends Controller
                     ]);
                 }
                 return back()->withErrors(['role' => 'You do not have permission to access this area.',]);
-            }*/
+            }
 
             // Generar token de acceso JWT
             $token = $user->createToken('API Token')->plainTextToken;
@@ -102,7 +102,46 @@ class LoginController extends Controller
         } catch (ValidationException $e) {
             return response()->json(['message' => $e->errors()], 401);
         }
+    }*/
+
+    public function login(Request $request)
+{
+    try {
+        // Validar datos de entrada
+        $request->validate([
+            'email' => 'required|email',
+            'password' => 'required',
+        ]);
+
+        // Obtener credenciales de la solicitud
+        $credentials = $request->only('email', 'password');
+
+        // Autenticar usuario
+        if (!Auth::attempt($credentials)) {
+            throw ValidationException::withMessages([
+                'email' => ['Las credenciales proporcionadas son incorrectas.'],
+            ]);
+        }
+
+        // Obtener usuario autenticado
+        $user = Auth::user();
+
+        // Generar token de acceso JWT
+        $token = $user->createToken('API Token')->plainTextToken;
+
+        // Respuesta JSON con el token
+        return response()->json([
+            'message' => 'Login exitoso',
+            'token' => $token,
+            'user' => $user
+        ], 200);
+    } catch (ValidationException $e) {
+        return response()->json(['message' => $e->errors()], 401);
+    } catch (\Exception $e) {
+        return response()->json(['message' => 'Error en el servidor'], 500);
     }
+}
+
 
     public function logout(Request $request)
     {
