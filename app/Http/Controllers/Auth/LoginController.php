@@ -146,16 +146,16 @@ class LoginController extends Controller
     public function logout(Request $request)
     {
         $request->user()->tokens()->delete();
-        if ($request->wantsJson()) {
+        //if ($request->wantsJson()) {
             // Para solicitudes API
             
             return response()->json([
                 'message' => 'Successfully logged out'
             ]);
-        }
+        //}
         // Para solicitudes web
-        Auth::logout();
-        return redirect()->route('login.form');
+        //Auth::logout();
+        //return redirect()->route('login.form');
     }
 
     // Estos métodos ahora son alias para mantener compatibilidad con tus rutas existentes
