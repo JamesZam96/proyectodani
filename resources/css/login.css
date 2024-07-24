@@ -1,0 +1,158 @@
+body {
+    font-family: -apple-system, system-ui, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', 'Fira Sans', Ubuntu, Oxygen, 'Oxygen Sans', Cantarell, 'Droid Sans', 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Lucida Grande', Helvetica, Arial, sans-serif;
+    background-color: #f3f2ef;
+    margin: 0;
+    padding: 0;
+}
+
+.login-container {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 24px;
+}
+
+.login-form-container {
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 24px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.login-title {
+    font-size: 32px;
+    font-weight: 600;
+    color: rgba(0, 0, 0, 0.9);
+    margin-bottom: 12px;
+}
+
+.login-subtitle {
+    font-size: 14px;
+    color: rgba(0, 0, 0, 0.6);
+    margin-bottom: 24px;
+}
+
+.login-form .form-group {
+    margin-bottom: 16px;
+}
+
+.login-form input[type="email"],
+.login-form input[type="password"] {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+.login-form input[type="email"]:focus,
+.login-form input[type="password"]:focus {
+    border-color: #0a66c2;
+    box-shadow: 0 0 0 1px #0a66c2;
+}
+
+.remember-me {
+    display: flex;
+    align-items: center;
+}
+
+.remember-me input[type="checkbox"] {
+    margin-right: 8px;
+}
+
+.login-button {
+    width: 100%;
+    padding: 12px;
+    background-color: #0a66c2;
+    color: #fff;
+    border: none;
+    border-radius: 24px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.login-button:hover {
+    background-color: #004182;
+}
+
+.login-divider {
+    text-align: center;
+    margin: 16px 0;
+    overflow: hidden;
+}
+
+.login-divider span {
+    display: inline-block;
+    position: relative;
+    padding: 0 10px;
+    color: rgba(0, 0, 0, 0.6);
+}
+
+.login-divider span::before,
+.login-divider span::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    width: 100vw;
+    height: 1px;
+    background-color: rgba(0, 0, 0, 0.15);
+}
+
+.login-divider span::before {
+    right: 100%;
+}
+
+.login-divider span::after {
+    left: 100%;
+}
+
+.google-login-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 12px;
+    background-color: #fff;
+    color: rgba(0, 0, 0, 0.6);
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    border-radius: 24px;
+    font-size: 16px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: background-color 0.3s;
+}
+
+.google-login-button:hover {
+    background-color: rgba(0, 0, 0, 0.04);
+}
+
+.google-login-button img {
+    width: 20px;
+    height: 20px;
+    margin-right: 8px;
+}
+
+.signup-link {
+    text-align: center;
+    margin-top: 16px;
+    font-size: 14px;
+    color: rgba(0, 0, 0, 0.9);
+}
+
+.signup-link a {
+    color: #0a66c2;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.signup-link a:hover {
+    text-decoration: underline;
+}
+
+.error {
+    color: #d11124;
+    font-size: 14px;
+    margin-top: 4px;
+    display: block;
+}
